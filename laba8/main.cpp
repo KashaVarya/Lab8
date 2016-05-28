@@ -19,11 +19,10 @@ int main()
     WIN32_FIND_DATAA FindFileData;
     HANDLE hf;
 
-    hf=FindFirstFile(L"c:\\test\\test2\\*", &FindFileData);
+   // hf=FindFirstFile(L"c:\\test\\test2\\*", &FindFileData);
    // hf=FindFirstFile(L"d:\\AFILE\\*", &FindFileData);
 
     hf=FindFirstFileA(adr, &FindFileData);  // указываем путь
->>>>>>> 3505427d46638811b5e9a9655632d60da22e8cd0
 
     string s[10]; //массив с названиями файлов в папке
     int i=0;
