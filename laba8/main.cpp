@@ -6,8 +6,8 @@ int main()
 {
     WIN32_FIND_DATA FindFileData;
     HANDLE hf;
-    //hf=FindFirstFile(L"c:\\test\\test2\\*", &FindFileData);    // вывод названий файлов по указаному пути
-    hf=FindFirstFile(L"d:\\AFILE\\*", &FindFileData);
+    hf=FindFirstFile(L"c:\\test\\test2\\*", &FindFileData);    // вывод названий файлов по указаному пути
+   // hf=FindFirstFile(L"d:\\AFILE\\*", &FindFileData);
 
     wstring s[5];
     int i=0;
