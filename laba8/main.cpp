@@ -37,7 +37,9 @@ int main()
 
     string str1;
     ifstream fin;
-    fin.open(s[3]);
+    fin.open("H:\\Programing\\otcheti\\GDiK\\Lab8\\Lab8\\Audio\\Imagine Dragons - Radioactive.mp3");
+    if(!fin.is_open())
+        cout << "Ne otkriolo";
     fin >> str1;
     cout << str1;
 
