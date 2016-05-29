@@ -2,8 +2,7 @@
 #include<iostream>
 
 #include<string>
-
-#include <string>
+#include<fstream>
 
 using namespace std;
 
@@ -13,16 +12,16 @@ int main()
     //Пользователь вводит путь к папке
     cout << "Введите путь к папке: ";
     char adr[80];
-    cin >> adr;   //d:\\AFILE\\*
+    cin >> adr;   //d:\\AFILE\\* (мой путь)
 
     //Получаем список файлов в указанной папке
     WIN32_FIND_DATAA FindFileData;
     HANDLE hf;
 
-   // hf=FindFirstFile(L"c:\\test\\test2\\*", &FindFileData);
-   // hf=FindFirstFile(L"d:\\AFILE\\*", &FindFileData);
+   // hf=FindFirstFileA("c:\\test\\test2\\*", &FindFileData);
+    hf=FindFirstFileA("d:\\AFILE\\*", &FindFileData);
 
-    hf=FindFirstFileA(adr, &FindFileData);  // указываем путь
+    //hf=FindFirstFileA(adr, &FindFileData);  // указываем путь
 
     string s[10]; //массив с названиями файлов в папке
     int i=0;
@@ -36,6 +35,13 @@ int main()
     }
     cout << s[2] << endl << s[3] << endl;
 
+    string str1;
+    ifstream fin;
+    fin.open(s[3]);
+    fin >> str1;
+    cout << str1;
+
+    fin.close();
 
 
     return 0;
