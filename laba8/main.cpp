@@ -87,27 +87,39 @@ int main()
         while(!isspace(str_for_audio[position2])) position2++;
         string nazvaniye = str_for_audio.substr(position1, position2 - position1);
         cout << "Nazvaniye: " << nazvaniye << endl;
-     /*   //redaktiruem
+
+        //redaktiruem
         cout << "Xotite redaktirovat?(1- da, 0- net): ";
         int ans;
         cin >> ans;
         if(ans == 1) {
             cout << "Albom: ";
             cin >> album;
-            str_for_audio.replace(21, 4, album);
-            cout << "Nazvaniye: ";
-            cin >> nazvaniye;
-            str_for_audio.replace(67, 11, nazvaniye);
-            cout << "Ispolnitel: ";
-            cin >> ispolnitel;
-            str_for_audio.replace(50, 7, ispolnitel);
+            position1 = str_for_audio.find("TYER");
+            str_for_audio.replace(21, position1 - 21, album);
+
             cout << "God: ";
             cin >> god;
-            str_for_audio.replace(36, 4, god);
+            position1 = str_for_audio.find("TYER") + 11;
+            position2 = str_for_audio.find("TPE2");
+            str_for_audio.replace(position1, position2 - position1, god);
+
+            cout << "Ispolnitel: ";
+            cin >> ispolnitel;
+            position1 = str_for_audio.find("TPE2") + 11;
+            position2 = str_for_audio.find("TIT2");
+            str_for_audio.replace(position1, position2 - position1, ispolnitel);
+
+            cout << "Nazvaniye: ";
+            cin >> nazvaniye;
+            position1 = str_for_audio.find("TIT2") + 11;
+            position2 = str_for_audio.find("TIT2") + 11;
+            while(!isspace(str_for_audio[position2])) position2++;
+            str_for_audio.replace(position1, position2 - position1, nazvaniye);
         }
         ofstream fout(str2);
         fout << str_for_audio;
-        fout.close();*/
+        fout.close();
     }
 
 
